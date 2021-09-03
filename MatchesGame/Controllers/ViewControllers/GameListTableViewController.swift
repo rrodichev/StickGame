@@ -17,9 +17,7 @@ class GameListTableViewController: UITableViewController {
         tableView.rowHeight = 75
     }
     
-    // MARK: - Properties
     
-
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,20 +26,20 @@ class GameListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath)
-
         let game = GameStateStorage.shared.states[indexPath.row]
         
         cell.textLabel?.text = game.gameName
         cell.textLabel?.textAlignment = .left
         cell.textLabel?.textColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
         cell.textLabel?.font = UIFont(name:"Arial Rounded MT Bold", size: 23.0)
-        cell.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+        cell.backgroundColor = .systemGreen
         cell.layer.cornerRadius = 16
         cell.layer.masksToBounds = true
 
         return cell
     }
 
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,8 +49,8 @@ class GameListTableViewController: UITableViewController {
             destination.game = GameStateStorage.shared.states[indexPath.row]
         }
     }
-
 }
+
 
 extension GameListTableViewController: GameToggleDelegate {
     func toggleIsAccomplishedFor(game: GameState) {

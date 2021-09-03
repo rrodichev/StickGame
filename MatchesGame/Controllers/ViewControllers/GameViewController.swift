@@ -8,33 +8,37 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    
+    // MARK: - Constants
 
     private enum Constants {
         static let sideMargin: CGFloat = 20.0
         static let stickWidth: CGFloat = 10.0
     }
     
+    
     // MARK: - Lifecycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = #colorLiteral(red: 1, green: 0.9165547274, blue: 0.877078134, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         drawGame()
     }
+    
     
     // MARK: - Properties
     
     var game: GameState?
     var stick: Stick?
     
-    weak var delegate: GamePresentationViewControllerDelegate?
     
     // MARK: - Actions
     
     @IBAction func answerButtonTapped(_ sender: Any) {
         presentAnswerAlertController()
     }
+    
     
     // MARK: - Helper Functions
     

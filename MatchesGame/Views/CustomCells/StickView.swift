@@ -10,11 +10,13 @@ import UIKit
 class StickView: UIView {
     
     private enum Constants {
-        static let visibleColor: UIColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
-        static let invisibleColor: UIColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1).withAlphaComponent(0.25)
+        static let visibleColor: UIColor = .systemGreen
+        static let invisibleColor: UIColor = .systemGreen.withAlphaComponent(0.25)
+        static let clearColor: UIColor = .clear
     }
     
     var stick: Stick?
+    //var game: GameState?
     
     convenience init(frame: CGRect, stick: Stick) {
         self.init(frame: frame)
@@ -31,25 +33,24 @@ class StickView: UIView {
     }
     
     func setupUI() {
-        
-        guard let stick = stick else {
-            return
-        }
-        
-//        self.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+        guard let stick = stick else { return }
         self.backgroundColor = stick.visible ? Constants.visibleColor : Constants.invisibleColor
+        self.backgroundColor = stick.clear ? Constants.clearColor : Constants.visibleColor
+        self.layer.cornerRadius = 19
+        self.layer.masksToBounds = true
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         self.addGestureRecognizer(tapGestureRecognizer)
     }
     
     @objc private func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-        
-        guard let stick = stick else {
-            return
-        }
+        guard let stick = stick else { return }
         
         stick.visible = !stick.visible
         self.backgroundColor = stick.visible ? Constants.visibleColor : Constants.invisibleColor
+        
+        //guard let game = game else { return }
+        
+        
     }
 }

@@ -14,11 +14,13 @@ class Stick {
     let startPoint: Point
     var horizontal: Bool
     var visible: Bool
+    var clear: Bool
     
-    init(startPoint: Point, horizontal: Bool, visible: Bool = true) {
+    init(startPoint: Point, horizontal: Bool, visible: Bool = true, clear: Bool = false) {
         self.startPoint = startPoint
         self.horizontal = horizontal
         self.visible = visible
+        self.clear = clear
     }
 }
 

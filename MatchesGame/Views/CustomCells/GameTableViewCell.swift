@@ -18,7 +18,9 @@ class GameTableViewCell: UITableViewCell {
     }
 
     // MARK: - Outlets
+    
     @IBOutlet weak var checkmarkButton: UIButton!
+    
     
     // MARK: - Properties
     
@@ -30,12 +32,15 @@ class GameTableViewCell: UITableViewCell {
     
     weak var delegate: GameToggleDelegate?
     
+    
     // MARK: - Actions
+    
     @IBAction func checkmarkButtonTapped(_ sender: Any) {
         guard let game = game else { return }
         
         delegate?.toggleIsAccomplishedFor(game: game)
     }
+    
     
     // MARK: - Helper Functions
     

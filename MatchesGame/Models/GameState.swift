@@ -19,8 +19,9 @@ class GameState {
     let maxX: Int
     let maxY: Int
     let finalState: GameRepresentation //should be an array
+    var maxRemoveNum: Int
 
-    init(gameName: String, isAccomplished: Bool = false, gameDescription: String, image: UIImage, gameID: Int, representation: GameRepresentation, maxX: Int, maxY: Int, finalState: GameRepresentation) {
+    init(gameName: String, isAccomplished: Bool = false, gameDescription: String, image: UIImage, gameID: Int, representation: GameRepresentation, maxX: Int, maxY: Int, finalState: GameRepresentation, maxRemoveNum: Int) {
         self.gameName = gameName
         self.isAccomplished = isAccomplished
         self.gameDescription = gameDescription
@@ -30,6 +31,7 @@ class GameState {
         self.maxX = maxX
         self.maxY = maxY
         self.finalState = finalState
+        self.maxRemoveNum = maxRemoveNum
     }
 }
 

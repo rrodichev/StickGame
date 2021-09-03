@@ -8,25 +8,34 @@
 import UIKit
 
 class AnswerViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.backgroundColor = #colorLiteral(red: 1, green: 0.9165547274, blue: 0.877078134, alpha: 1)
-        
-        drawFinalState()
-
-    }
+    
+    // MARK: - Constants
     
     private enum Constants {
         static let sideMargin: CGFloat = 20.0
         static let stickWidth: CGFloat = 10.0
     }
+
+    
+    // MARK: - Lifecycles
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 0.6324404762)
+        
+        drawFinalState()
+
+    }
+    
     
     // MARK: - Properties
     
     var game: GameState?
     var stick: Stick?
+    
+    
+    // MARK: - Helper Functions
     
     private func drawFinalState() {
         
@@ -52,11 +61,12 @@ class AnswerViewController: UIViewController {
             let startY = y + CGFloat(start.y) * stickLength - CGFloat(start.y) * Constants.stickWidth
             
             let view = UIView()
-            view.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+            view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            view.layer.cornerRadius = 19
+            view.layer.masksToBounds = true
             view.frame = CGRect(x: startX, y: startY, width: stick.horizontal ? stickLength : Constants.stickWidth,
                                     height: stick.horizontal ? Constants.stickWidth : stickLength)
             self.view.addSubview(view)
         }
     }
-
 }

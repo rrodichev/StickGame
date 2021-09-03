@@ -8,10 +8,12 @@
 import UIKit
 
 class GameDetailsViewController: UIViewController {
+    
+    // MARK: - Lifecycles
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 1, green: 0.9165547274, blue: 0.877078134, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -20,8 +22,11 @@ class GameDetailsViewController: UIViewController {
         updateView()
     }
     
+    
     // MARK: - Properties
+    
     var game: GameState?
+    
     
     // MARK: - Outlets
     
@@ -33,13 +38,14 @@ class GameDetailsViewController: UIViewController {
     
     func updateView() {
         guard let game = game,
-              let gameImageView = gameImageView,
+              //let gameImageView = gameImageView,
               let gameDescriptionText = gameDescriptionText else { return }
         
-        gameImageView.image = game.image
+        //gameImageView.image = game.image
         gameDescriptionText.text = game.gameDescription
     }
 
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
